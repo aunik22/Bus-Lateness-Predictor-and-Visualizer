@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Bus Performance</title>
+  <style>
+    #map {
+      height: 600px;
+      width: 100%;
+    }
+  </style>
+</head>
+
+<body>
+
+  <h1>Bus Performance</h1>
+  <div id="map"></div>
+  <script>
+    function initMap() {
+      var options = {
+        zoom: 8,
+        center: { lat: 43.1566, lng: -77.6088 }
+      }
+
+      var map = new google.maps.Map(document.getElementById('map'), options);
+
+      var stations = [{ coords: { lat: 43.158300, lng: -77.608200 }, content: '<h1> Regional Transit Service</h1>' }, { coords: { lat: 43.161170, lng: -77.574608 }, content: '<h1> </h1>' },
+      { coords: { lat: 42.985043, lng: -78.157499 }, content: '<h1> </h1>' }, { coords: { lat: 42.732838, lng: -77.829647 }, content: '<h1> </h1>' },
+      { coords: { lat: 42.807093, lng: -76.845991 }, content: '<h1> </h1>' }, { coords: { lat: 43.064072, lng: -77.037483 }, content: '<h1> </h1>' },
+      { coords: { lat: 43.239668, lng: -78.198688 }, content: '<h1> </h1>' }, { coords: { lat: 43.161164, lng: -77.574487 }, content: '<h1> </h1>' },
+      { coords: { lat: 43.161192, lng: -77.574844 }, content: '<h1> </h1>' }, { coords: { lat: 42.732826, lng: -77.829552 }, content: '<h1> </h1>' },
+      { coords: { lat: 42.887882, lng: -77.219001 }, content: '<h1> </h1>' }, { coords: { lat: 43.239667, lng: -78.198695 }, content: '<h1> </h1>' },
+      { coords: { lat: 42.807100, lng: -76.846021 }, content: '<h1> </h1>' }, { coords: { lat: 43.064079, lng: -77.037547 }, content: '<h1> </h1>' }];
+
+      var stationNames = ["", "Lift Line", "Batavia Bus Service",
+        "Livingston Area Transportation Service", "Seneca Transit Service", "Wayne Area Transportation Service",
+        "Orleans Transit Service", "RTS Access", "RTS Genesee", "RTS Livingston",
+        "RTS Ontario", "RTS Orleans", "RTS Seneca", "RTS Wayne"];
+
+      function makeGreenCircle(props) {
+        var circle = new google.maps.Circle({
+          map: map,
+          center: props.coords,
+          radius: 8000,
+          strokeColor: "green",
+          fillColor: "green",
+          strokeWeight: 0
+        });
+      }
+
+      function makeRedCircle(props) {
+        var circle = new google.maps.Circle({
+          map: map,
+          center: props.coords,
+          radius: 8000,
+          strokeColor: "red",
+          fillColor: "red",
+          strokeWeight: 0
+        });
+      }
+
+      for (var i = 0; i < stations.length; i++) {
+        makeRedCircle(stations[i]);
+      }
+
+      function addMarker(props) {
+        var marker = new google.maps.Marker({
+          position: props.coords,
+          map: map
+        });
+      }
+
+      for (var i = 0; i < stations.length; i++) {
+        addMarker(stations[i]);
+      }
+
+
+    }
+  </script>
+  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCsHyb04RHJXSRZx4earnJBjKw7YCtJ5-0&callback=initMap"
+    async defer></script>
+
+
+</body>
+
+</html>
