@@ -26,7 +26,11 @@
       }
 
       var map = new google.maps.Map(document.getElementById('map'), options);
-
+      // listeners
+      google.maps.event.addListener(map, 'click', 
+      function(event){
+        addMarker({coords:event.latLng});
+      });
       var stations = [{ coords: { lat: 43.158300, lng: -77.608200 }, content: '<h1> Regional Transit Service</h1>' }, { coords: { lat: 43.161170, lng: -77.574608 }, content: '<h1> Lift Line </h1>' },
       { coords: { lat: 42.985043, lng: -78.157499 }, content: '<h1> Batavia Bus Service</h1>' }, { coords: { lat: 42.732838, lng: -77.829647 }, content: '<h1> Livingston Area Transportation Service </h1>' },
       { coords: { lat: 42.807093, lng: -76.845991 }, content: '<h1> Seneca Transit Service</h1>' }, { coords: { lat: 43.064072, lng: -77.037483 }, content: '<h1> Wayne Area Transportation Service</h1>' },
@@ -68,6 +72,12 @@
           position: props.coords,
           map: map
         });
+        if(props.content) {
+          var popWin = new google.maps.InfoWindow({
+            content: props.conten t
+          });
+        }
+        
       }
 
       for (var i = 0; i < stations.length; i++) {
