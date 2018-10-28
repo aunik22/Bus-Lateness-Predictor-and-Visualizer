@@ -27,18 +27,15 @@
 
       var map = new google.maps.Map(document.getElementById('map'), options);
 
-      var stations = [{ coords: { lat: 43.158300, lng: -77.608200 }, content: '<h1> Regional Transit Service</h1>' }, { coords: { lat: 43.161170, lng: -77.574608 }, content: '<h1> </h1>' },
-      { coords: { lat: 42.985043, lng: -78.157499 }, content: '<h1> </h1>' }, { coords: { lat: 42.732838, lng: -77.829647 }, content: '<h1> </h1>' },
-      { coords: { lat: 42.807093, lng: -76.845991 }, content: '<h1> </h1>' }, { coords: { lat: 43.064072, lng: -77.037483 }, content: '<h1> </h1>' },
-      { coords: { lat: 43.239668, lng: -78.198688 }, content: '<h1> </h1>' }, { coords: { lat: 43.161164, lng: -77.574487 }, content: '<h1> </h1>' },
-      { coords: { lat: 43.161192, lng: -77.574844 }, content: '<h1> </h1>' }, { coords: { lat: 42.732826, lng: -77.829552 }, content: '<h1> </h1>' },
-      { coords: { lat: 42.887882, lng: -77.219001 }, content: '<h1> </h1>' }, { coords: { lat: 43.239667, lng: -78.198695 }, content: '<h1> </h1>' },
-      { coords: { lat: 42.807100, lng: -76.846021 }, content: '<h1> </h1>' }, { coords: { lat: 43.064079, lng: -77.037547 }, content: '<h1> </h1>' }];
+      var stations = [{ coords: { lat: 43.158300, lng: -77.608200 }, content: '<h1> Regional Transit Service</h1>' }, { coords: { lat: 43.161170, lng: -77.574608 }, content: '<h1> Lift Line </h1>' },
+      { coords: { lat: 42.985043, lng: -78.157499 }, content: '<h1> Batavia Bus Service</h1>' }, { coords: { lat: 42.732838, lng: -77.829647 }, content: '<h1> Livingston Area Transportation Service </h1>' },
+      { coords: { lat: 42.807093, lng: -76.845991 }, content: '<h1> Seneca Transit Service</h1>' }, { coords: { lat: 43.064072, lng: -77.037483 }, content: '<h1> Wayne Area Transportation Service</h1>' },
+      { coords: { lat: 43.239668, lng: -78.198688 }, content: '<h1> Orleans Transit Service</h1>' }, { coords: { lat: 43.161164, lng: -77.574487 }, content: '<h1> RTS Access</h1>' },
+      { coords: { lat: 43.161192, lng: -77.574844 }, content: '<h1> RTS Genesee</h1>' }, { coords: { lat: 42.732826, lng: -77.829552 }, content: '<h1> RTS Livingston</h1>' },
+      { coords: { lat: 42.887882, lng: -77.219001 }, content: '<h1> RTS Ontario</h1>' }, { coords: { lat: 43.239667, lng: -78.198695 }, content: '<h1> RTS Orleans</h1>' },
+      { coords: { lat: 42.807100, lng: -76.846021 }, content: '<h1> RTS Seneca</h1>' }, { coords: { lat: 43.064079, lng: -77.037547 }, content: '<h1> RTS Wayne</h1>' }];
 
-      var stationNames = ["", "Lift Line", "Batavia Bus Service",
-        "Livingston Area Transportation Service", "Seneca Transit Service", "Wayne Area Transportation Service",
-        "Orleans Transit Service", "RTS Access", "RTS Genesee", "RTS Livingston",
-        "RTS Ontario", "RTS Orleans", "RTS Seneca", "RTS Wayne"];
+
 
       function makeGreenCircle(props) {
         var circle = new google.maps.Circle({
